@@ -18,4 +18,5 @@ Django & Django REST Framwork
   - report(app):  预测报告
   - relax(app):  轻松一刻
   - soul(app):  心灵树洞
-  - user(app):  用户中心、登陆注册
+  - user(app):  用户登陆注册
+  - info(app):  用户中心

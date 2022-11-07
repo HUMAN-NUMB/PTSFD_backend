@@ -1,21 +1,56 @@
-from datetime import date
+from shortuuidfield import ShortUUIDField
 from django.db import models
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    PermissionsMixin,
+    BaseUserManager,
+)
 
-# Create your models here.
-class User(models.Model):
-    SEX_CHOICES = [("m", "男"), ("f", "女")]
 
-    name = models.CharField("用户名", max_length=20, unique=True)
-    password = models.CharField("密码哈希", max_length=32)
+class UserManager(BaseUserManager):
+    def create_user(self, username, password):
+        if not password:
+            raise ValueError("Empty password!")
+        user = self.model(username=username)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
-    image = models.ImageField(
-        "头像", upload_to="favicon/%Y/%m/%d/", null=True, blank=True
-    )
-    sex = models.CharField("性别", max_length=1, choices=SEX_CHOICES, blank=True)
-    birthday = models.DateField("生日", default=date.today)
-    introduction = models.CharField("简介", max_length=500, blank=True)
-    contact = models.CharField("联系方式", max_length=20, blank=True)
-    area = models.CharField("地区", max_length=20, blank=True)
+    def create_superuser(self, username, password):
+        user = self.create_user(username=username, password=password)
+        user.is_admin = True
+        user.save(using=self._db)
+        return user
+
+
+class User(AbstractBaseUser, PermissionsMixin):
+    user_id = ShortUUIDField(primary_key=True)  # ShortUUIDField(primary_key=True)
+    username = models.CharField(max_length=128, unique=True)
+    password = models.CharField(max_length=512)
+
+    is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=False)
+
+    objects = UserManager()
+
+    USERNAME_FIELD = "username"
+    REQUIRED_FIELDS = []
 
     def __str__(self):
-        return self.name
+        return self.username
+
+    def has_perm(self, perm, obj=None):
+        "Does the user have a specific permission?"
+        # Simplest possible answer: Yes, always
+        return True
+
+    def has_module_perms(self, app_label):
+        "Does the user have permissions to view the app `app_label`?"
+        # Simplest possible answer: Yes, always
+        return True
+
+    @property
+    def is_staff(self):
+        "Is the user a member of staff?"
+        # Simplest possible answer: All admins are staff
+        return self.is_admin

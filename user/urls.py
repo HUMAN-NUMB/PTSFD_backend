@@ -1,9 +1,8 @@
-from django.urls import path
+from django.urls import re_path
 
-
-from . import views
+from user import views
 
 
 urlpatterns = [
-    path("", views.UserInfo.as_view()),
+    re_path(r"", views.UserViewSet.as_view()),
 ]

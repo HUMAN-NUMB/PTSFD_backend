@@ -6,5 +6,7 @@ from info.models import Info
 class InfoSerializers(serializers.ModelSerializer):
     class Meta:
         model = Info
-        fields = "__all__"
+        exclude = [
+            "id",
+        ]
         read_only_fields = ["user"]

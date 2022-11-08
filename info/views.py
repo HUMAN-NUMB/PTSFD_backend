@@ -1,14 +1,11 @@
 from rest_framework import generics
-from rest_framework import permissions
 
 from info.models import Info
 from info.serializers import InfoSerializers
 
 
-class InfoViewSet(generics.ListAPIView, generics.UpdateAPIView):
-    permission_classes = [
-        permissions.IsAuthenticated,
-    ]
-
-    queryset = Info.objects.all()
+class InfoView(generics.ListAPIView, generics.UpdateAPIView):
+    queryset = Info.objects
     serializer_class = InfoSerializers
+    lookup_field = "user"
+    lookup_url_kwarg = "user_id"

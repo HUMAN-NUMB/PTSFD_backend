@@ -1,19 +1,18 @@
 from django.contrib import admin
-from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 from info.models import Info
 
 
 class InfoAdmin(BaseUserAdmin):
-    list_display = ("user", "sex", "birthday", "area", "contact", "introduction")
-    list_filter = ("user",)
+    list_display = ("user_id", "sex", "birthday", "area", "contact", "introduction")
+    list_filter = ("user_id",)
     fieldsets = (
         (
             None,
             {
                 "fields": (
-                    "user",
+                    "user_id",
                     "image",
                     "sex",
                     "birthday",
@@ -30,7 +29,7 @@ class InfoAdmin(BaseUserAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    "user",
+                    "user_id",
                     "image",
                     "sex",
                     "birthday",
@@ -41,10 +40,9 @@ class InfoAdmin(BaseUserAdmin):
             },
         ),
     )
-    search_fields = ("user",)
-    ordering = ("user",)
+    search_fields = ("user_id",)
+    ordering = ("user_id",)
     filter_horizontal = ()
 
 
 admin.site.register(Info, InfoAdmin)
-# admin.site.unregister(Group)

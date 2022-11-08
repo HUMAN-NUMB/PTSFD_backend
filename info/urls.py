@@ -1,8 +1,8 @@
-from django.urls import re_path
+from django.urls import path
 
 from info import views
 
 
 urlpatterns = [
-    re_path(r"(?P<user_id>.+)$", views.InfoView.as_view()),
+    path("", views.InfoView.as_view()),
 ]

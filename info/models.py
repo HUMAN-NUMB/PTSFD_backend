@@ -9,7 +9,7 @@ User = get_user_model()
 class Info(models.Model):
     SEX_CHOICES = (("m", "男"), ("f", "女"))
 
-    user = models.OneToOneField(
+    user_id = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="extension"
     )
     image = models.ImageField(upload_to="favicon/%Y/%m/%d/", null=True, blank=True)
@@ -20,7 +20,7 @@ class Info(models.Model):
     area = models.CharField(max_length=128, null=True, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user_id.username
 
 
 @receiver(post_save, sender=User)

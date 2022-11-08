@@ -5,7 +5,11 @@ from info.serializers import InfoSerializers
 
 
 class InfoView(generics.ListAPIView, generics.UpdateAPIView):
-    queryset = Info.objects
+    # queryset = Info.objects
     serializer_class = InfoSerializers
-    lookup_field = "user"
-    lookup_url_kwarg = "user_id"
+    # lookup_field = "user"
+    # lookup_url_kwarg = "user_id"
+
+    def get_queryset(self):
+        user_id = self.request.user.user_id
+        return Info.objects.filter(user_id=user_id).all()

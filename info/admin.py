@@ -5,14 +5,23 @@ from info.models import Info
 
 
 class InfoAdmin(BaseUserAdmin):
-    list_display = ("user_id", "sex", "birthday", "area", "contact", "introduction")
-    list_filter = ("user_id",)
+    list_display = (
+        "user",
+        "nickname",
+        "sex",
+        "birthday",
+        "area",
+        "contact",
+        "introduction",
+    )
+    list_filter = ("user",)
     fieldsets = (
         (
             None,
             {
                 "fields": (
-                    "user_id",
+                    "user",
+                    "nickname",
                     "image",
                     "sex",
                     "birthday",
@@ -29,7 +38,8 @@ class InfoAdmin(BaseUserAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    "user_id",
+                    "user",
+                    "nickname",
                     "image",
                     "sex",
                     "birthday",
@@ -40,8 +50,8 @@ class InfoAdmin(BaseUserAdmin):
             },
         ),
     )
-    search_fields = ("user_id",)
-    ordering = ("user_id",)
+    search_fields = ("user",)
+    ordering = ("user",)
     filter_horizontal = ()
 
 

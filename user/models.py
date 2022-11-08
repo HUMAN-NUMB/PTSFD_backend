@@ -24,7 +24,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    user_id = ShortUUIDField(primary_key=True)  # ShortUUIDField(primary_key=True)
+    user_id = ShortUUIDField(primary_key=True)
     username = models.CharField(max_length=128, unique=True)
     password = models.CharField(max_length=512)
 

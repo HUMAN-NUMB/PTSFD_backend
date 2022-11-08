@@ -12,4 +12,4 @@ class InfoView(generics.ListAPIView, generics.UpdateAPIView):
 
     def get_queryset(self):
         user_id = self.request.user.user_id
-        return Info.objects.filter(user_id=user_id).all()
+        return Info.objects.filter(user=user_id).all()

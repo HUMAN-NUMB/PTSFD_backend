@@ -4,5 +4,5 @@ from info import views
 
 
 urlpatterns = [
-    re_path(r"", views.InfoViewSet.as_view()),
+    re_path(r"^(?P<user_id>\w+$)", views.InfoViewSet.as_view()),
 ]

@@ -1,8 +1,16 @@
-from django.urls import re_path
+from django.urls import path
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView,
+)
 
 from user import views
 
 
 urlpatterns = [
-    re_path(r"", views.UserViewSet.as_view()),
+    path("register", views.UserRegister.as_view()),
+    path("auth", TokenObtainPairView.as_view()),
+    path("auth/refresh", TokenRefreshView.as_view()),
+    path("auth/verify", TokenVerifyView.as_view()),
 ]

@@ -1,16 +1,15 @@
-from shortuuidfield import ShortUUIDField
+from uuid import uuid1
 from django.db import models
 from django.contrib.auth.models import (
     AbstractBaseUser,
     PermissionsMixin,
     BaseUserManager,
 )
+from django.utils.translation import gettext_lazy as _
 
 
 class UserManager(BaseUserManager):
     def create_user(self, username, password):
-        if not password:
-            raise ValueError("Empty password!")
         user = self.model(username=username)
         user.set_password(password)
         user.save(using=self._db)
@@ -24,17 +23,20 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    user_id = ShortUUIDField(primary_key=True)
-    username = models.CharField(max_length=128, unique=True)
-    password = models.CharField(max_length=512)
+    user_id = models.UUIDField(
+        _("用户标识码"), max_length=128, default=uuid1, primary_key=True, editable=False
+    )
+    username = models.CharField(_("用户名"), max_length=128, unique=True)
 
-    is_active = models.BooleanField(default=True)
-    is_admin = models.BooleanField(default=False)
+    is_admin = models.BooleanField(_("管理员"), default=False)
 
     objects = UserManager()
 
     USERNAME_FIELD = "username"
-    REQUIRED_FIELDS = []
+
+    class Meta:
+        verbose_name = _("用户")
+        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.username

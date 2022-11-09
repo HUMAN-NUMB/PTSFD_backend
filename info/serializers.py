@@ -11,4 +11,3 @@ class InfoSerializers(serializers.ModelSerializer):
     class Meta:
         model = Info
         exclude = ["user"]
-        # read_only_fields = ["user"]

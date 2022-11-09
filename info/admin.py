@@ -4,6 +4,12 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from info.models import Info
 
 
+admin.site.site_header = "用户"
+admin.site.site_title = admin.site.site_header
+admin.site.index_title = admin.site.site_title
+
+
+@admin.register(Info)
 class InfoAdmin(BaseUserAdmin):
     list_display = (
         "user",
@@ -53,6 +59,3 @@ class InfoAdmin(BaseUserAdmin):
     search_fields = ("user",)
     ordering = ("user",)
     filter_horizontal = ()
-
-
-admin.site.register(Info, InfoAdmin)

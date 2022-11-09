@@ -30,14 +30,18 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "user.User"
 
-AUTHENTICATION_BACKENDS = ("user.views.UserBackend",)
+AUTHENTICATION_BACKENDS = [
+    "user.views.UserBackend",
+]
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "USER_ID_FIELD": "user_id",
 }
 
-CORS_ORIGIN_WHITELIST = ("http://127.0.0.1",)
+CORS_ORIGIN_WHITELIST = [
+    "http://127.0.0.1:*",
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
@@ -49,6 +53,7 @@ REST_FRAMEWORK = {
 # Application definition
 
 INSTALLED_APPS = [
+    "simpleui",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -134,6 +139,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+MEDIA_URL = "media/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -144,3 +150,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SIMPLEUI_HOME_INFO = False
+
+SIMPLEUI_ANALYSIS = False

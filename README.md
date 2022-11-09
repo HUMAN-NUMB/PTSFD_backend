@@ -81,7 +81,7 @@
 
 ### 验证登录状态
 
-`POST` `/user/auth/refresh`
+`POST` `/user/auth/verify`
 
 #### 请求参数
 
@@ -109,7 +109,7 @@
 
 ### 更新用户信息
 
-`PUT` `/info`
+`PUT`/`PATCH` `/info`
 
 #### 请求头
 

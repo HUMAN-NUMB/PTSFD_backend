@@ -154,3 +154,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 SIMPLEUI_HOME_INFO = False
 
 SIMPLEUI_ANALYSIS = False
+
+SIMPLEUI_ICON = {
+    "用户信息": "fa fa-user-graduate",
+    "用户账号": "fa fa-user",
+}

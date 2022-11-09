@@ -10,7 +10,7 @@ User = get_user_model()
 
 
 class Info(models.Model):
-    SEX_CHOICES = (("m", "男"), ("f", "女"))
+    SEX_CHOICES = (("男", _("可爱的男孩纸")), ("女", _("呵，女人，你引起我的主意了")), ("权限狗", _("至高之人")))
 
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
@@ -22,7 +22,7 @@ class Info(models.Model):
     nickname = models.CharField(_("昵称"), max_length=128, null=False, blank=False)
     image = models.ImageField(_("头像"), upload_to="%Y/%m/%d/", null=True, blank=True)
     sex = models.CharField(
-        _("性别"), max_length=1, choices=SEX_CHOICES, null=True, blank=True
+        _("性别"), max_length=5, choices=SEX_CHOICES, null=True, blank=True
     )
     birthday = models.DateField(_("生日"), null=True, blank=True)
     introduction = models.TextField(_("个性签名"), max_length=1024, null=True, blank=True)

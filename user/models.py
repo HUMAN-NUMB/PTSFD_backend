@@ -39,7 +39,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.user_id
+        return self.username
 
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"

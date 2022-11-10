@@ -12,17 +12,17 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
-from . import secert
+from . import secret
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = secert.SECERT_KEY
+SECRET_KEY = secret.SECERT_KEY
 
 DEBUG = False
 
-ALLOWED_HOSTS = secert.ALLOWED_HOSTS
+ALLOWED_HOSTS = secret.ALLOWED_HOSTS
 
 AUTH_USER_MODEL = "user.User"
 
@@ -35,7 +35,7 @@ SIMPLE_JWT = {
     "USER_ID_FIELD": "user_id",
 }
 
-CORS_ORIGIN_WHITELIST = secert.CORS_ORIGIN_WHITELIST
+CORS_ORIGIN_WHITELIST = secret.CORS_ORIGIN_WHITELIST
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
@@ -61,9 +61,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -106,10 +106,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "_media")
 MEDIA_URL = "/media/"
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "_static")
 STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

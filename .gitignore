@@ -1,4 +1,5 @@
 venv
 __pycache__
-static
-apiproject/secert.py
+_static
+_media
+/apiproject/secret.py

@@ -34,7 +34,6 @@ urlpatterns = [
     path("user/", include("user.urls")),
     path("auth/", TokenObtainPairView.as_view()),
     path("auth/refresh/", TokenRefreshView.as_view()),
-    path("auth/verify/", TokenVerifyView.as_view()),
     path("info/", include("info.urls")),
     path("question/", include("question.urls")),
 ]

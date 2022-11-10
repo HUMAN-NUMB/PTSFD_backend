@@ -5,11 +5,6 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 
 
-admin.site.site_header = "用户账号"
-admin.site.site_title = admin.site.site_header
-admin.site.index_title = admin.site.site_title
-
-
 User = get_user_model()
 
 

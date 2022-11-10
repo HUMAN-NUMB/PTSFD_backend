@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = secret.SECERT_KEY
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = secret.ALLOWED_HOSTS
 
@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "user",
     "info",
+    "report",
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,8 @@ SIMPLEUI_HOME_INFO = False
 SIMPLEUI_ANALYSIS = False
 
 SIMPLEUI_ICON = {
-    "用户信息": "fa fa-user-graduate",
-    "用户账号": "fa fa-user",
+    "用户信息": "fa fa-code",
+    "用户账号": "fa fa-user-tag",
+    "题库": "fa fa-cube",
+    # "报告": "fa fa-chart-pie",
 }

@@ -1,5 +1,3 @@
 venv
 __pycache__
-_static
-_media
 /apiproject/secret.py

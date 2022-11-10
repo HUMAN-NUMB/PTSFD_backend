@@ -77,7 +77,7 @@
   | -------- | ---- | --- |
   |`Authorization`|string|Bearer \<Your Token Key\>|
 
-- 响应参数
+- 请求参数
 
   |参数名|类型|描述|
   | --- | - | - |
@@ -99,7 +99,7 @@
   | -------- | ---- | --- |
   |Authorization|string|Bearer \<Your Token Key\>|
 
-- 响应参数
+- 请求参数
 
   |参数名|类型|描述|
   | --- | - | - |

@@ -10,7 +10,7 @@ admin.site.index_title = admin.site.site_title
 
 
 @admin.register(Info)
-class InfoAdmin(BaseUserAdmin):
+class InfoAdmin(admin.ModelAdmin):
     list_display = (
         "user",
         "nickname",

@@ -29,8 +29,6 @@ class Info(models.Model):
     contact = models.CharField(_("联系方式"), max_length=128, null=True, blank=True)
     area = models.CharField(_("地区"), max_length=128, null=True, blank=True)
 
-    USERNAME_FIELD = "user"
-
     class Meta:
         verbose_name = _("用户信息")
         verbose_name_plural = verbose_name

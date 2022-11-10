@@ -31,7 +31,7 @@
 
 ### 注册
 
-`POST` `/user/register`
+`POST` `/user`
 
 #### 请求参数
 
@@ -50,7 +50,7 @@
 
 ### 登录
 
-`POST` `/user/auth`
+`POST` `/auth`
 
 #### 请求参数
 
@@ -68,7 +68,7 @@
 
 ### 刷新认证令牌
 
-`POST` `/user/auth/refresh`
+`POST` `/auth/refresh`
 
 #### 请求参数
 
@@ -84,7 +84,7 @@
 
 ### 验证登录状态
 
-`POST` `/user/auth/verify`
+`POST` `/auth/verify`
 
 #### 请求参数
 

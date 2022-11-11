@@ -119,6 +119,7 @@
 
   |参数名|类型|描述|
   | -------- | ---- | --- |
+  |Advanced|string|非空：进阶题库，空值/无：基础题库|
   |Authorization|string|Bearer \<Your Token Key\>|
 
 - 响应参数

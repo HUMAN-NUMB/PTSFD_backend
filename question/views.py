@@ -9,7 +9,7 @@ class QuestionAPIView(generics.ListAPIView):
     serializer_class = QuestionSerializers
 
     def get_queryset(self):
-        if self.request.headers.get("Advance", default=None):
+        if self.request.data.get("Advance", default=None):
             queryset = AdvancedQuestion.objects.all()
         else:
             queryset = BasicQuestion.objects.all()

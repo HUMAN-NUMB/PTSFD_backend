@@ -38,7 +38,7 @@ class Info(models.Model):
     area = models.CharField(_("地区"), max_length=128, null=True, blank=True)
 
     class Meta:
-        verbose_name = _("用户信息")
+        verbose_name = _("信息")
         verbose_name_plural = verbose_name
 
     def __str__(self):

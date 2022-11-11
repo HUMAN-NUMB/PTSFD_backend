@@ -35,7 +35,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "username"
 
     class Meta:
-        verbose_name = _("用户账号")
+        verbose_name = _("用户")
         verbose_name_plural = verbose_name
 
     def __str__(self):

@@ -120,8 +120,10 @@ SIMPLEUI_HOME_INFO = False
 SIMPLEUI_ANALYSIS = False
 
 SIMPLEUI_ICON = {
-    "用户信息": "fa fa-code",
-    "用户账号": "fa fa-user-tag",
+    "用户": "fa fa-user-tag",
     "题库": "fa fa-cube",
+    "基础题库": "fa fa-feather",
+    "进阶题库": "fa fa-dragon",
+    "信息": "fa fa-code",
     # "报告": "fa fa-chart-pie",
 }

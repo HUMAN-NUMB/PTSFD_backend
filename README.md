@@ -121,8 +121,13 @@
 
   |参数名|类型|描述|
   | -------- | ---- | --- |
-  |Advanced|string|非空：进阶题库，空值：基础题库|
   |Authorization|string|Bearer \<Your Token Key\>|
+
+- 请求参数
+
+  |参数名|类型|描述|
+  | -------- | ---- | --- |
+  |Advance|string|非空：进阶题库，空值：基础题库|
 
 - 响应参数
 

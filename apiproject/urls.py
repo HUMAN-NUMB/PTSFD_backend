@@ -18,7 +18,6 @@ from django.urls import path, include
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
-    TokenVerifyView,
 )
 
 # from django.conf import settings
@@ -36,5 +35,6 @@ urlpatterns = [
     path("auth/refresh/", TokenRefreshView.as_view()),
     path("info/", include("info.urls")),
     path("question/", include("question.urls")),
+    path("score/", include("score.urls")),
 ]
 # +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

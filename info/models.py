@@ -42,7 +42,7 @@ class Info(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.user.username
+        return self.nickname
 
 
 @receiver(post_save, sender=User)

@@ -4,5 +4,5 @@ from info import views
 
 
 urlpatterns = [
-    path("", views.InfoView.as_view()),
+    path("", views.InfoAPIView.as_view()),
 ]

@@ -5,7 +5,7 @@ from info.models import Info
 from info.serializers import InfoSerializers
 
 
-class InfoView(generics.RetrieveAPIView, generics.UpdateAPIView):
+class InfoAPIView(generics.RetrieveAPIView, generics.UpdateAPIView):
     queryset = Info.objects.all()
     serializer_class = InfoSerializers
     # lookup_field = "user"
@@ -16,9 +16,9 @@ class InfoView(generics.RetrieveAPIView, generics.UpdateAPIView):
     #     return Info.objects.filter(user=user_id)
 
     def get_object(self):
-        user_id = self.request.user.user_id
-        queryset = self.filter_queryset(self.get_queryset()).filter(user=user_id)
+        request = self.request
+        queryset = self.filter_queryset(self.get_queryset()).filter(user=request.user)
         obj = get_object_or_404(queryset)
 
-        self.check_object_permissions(self.request, obj)
+        self.check_object_permissions(request, obj)
         return obj

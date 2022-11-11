@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = secret.SECERT_KEY
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = secret.ALLOWED_HOSTS
 
@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "user",
     "info",
     "question",
+    "score",
 ]
 
 MIDDLEWARE = [
@@ -125,5 +126,5 @@ SIMPLEUI_ICON = {
     "基础题库": "fa fa-feather",
     "进阶题库": "fa fa-dragon",
     "信息": "fa fa-code",
-    # "报告": "fa fa-chart-pie",
+    "分数": "fa fa-chart-pie",
 }

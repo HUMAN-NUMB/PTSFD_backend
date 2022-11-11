@@ -11,14 +11,11 @@ def aqids():
 
 
 class Question(models.Model):
-    qid = models.IntegerField(_("题号"), default=0, null=False, blank=True)
     question = models.CharField(_("题目"), max_length=128)
     order = models.BooleanField(_("选项正序"), default=True)
 
     class Meta:
         abstract = True
-        verbose_name = _("题库")
-        verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.question

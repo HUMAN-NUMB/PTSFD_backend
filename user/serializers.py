@@ -5,7 +5,7 @@ from rest_framework_simplejwt.serializers import RefreshToken
 User = get_user_model()
 
 
-class UserRegisterSerializers(serializers.ModelSerializer):
+class UserSerializers(serializers.ModelSerializer):
     repassword = serializers.CharField(max_length=512, write_only=True)
     access = serializers.CharField(max_length=256, read_only=True)
     refresh = serializers.CharField(max_length=256, read_only=True)

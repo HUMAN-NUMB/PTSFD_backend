@@ -20,6 +20,12 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from user.views import UserAPIView as user_views
+from info.views import InfoAPIView as info_views
+from question.views import QuestionAPIView as question_views
+from score.views import ScoreAPIView as score_views
+
+
 admin.site.site_header = "PTSFD后台管理"
 admin.site.site_title = admin.site.site_header
 admin.site.index_title = admin.site.site_title
@@ -27,10 +33,10 @@ admin.site.index_title = admin.site.site_title
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("user/", include("user.urls")),
-    path("auth/", TokenObtainPairView.as_view()),
-    path("auth/refresh/", TokenRefreshView.as_view()),
-    path("info/", include("info.urls")),
-    path("question/", include("question.urls")),
-    path("score/", include("score.urls")),
+    path("user", user_views.as_view()),
+    path("auth", TokenObtainPairView.as_view()),
+    path("auth/refresh", TokenRefreshView.as_view()),
+    path("info", info_views.as_view()),
+    path("question", question_views.as_view()),
+    path("score", score_views.as_view()),
 ]

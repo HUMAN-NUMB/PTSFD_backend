@@ -2,13 +2,13 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.backends import ModelBackend
 from rest_framework import generics
 
-from user.serializers import UserRegisterSerializers
+from user.serializers import UserSerializers
 
 User = get_user_model()
 
 
-class UserRegister(generics.CreateAPIView):
-    serializer_class = UserRegisterSerializers
+class UserAPIView(generics.CreateAPIView):
+    serializer_class = UserSerializers
     permission_classes = []
 
 

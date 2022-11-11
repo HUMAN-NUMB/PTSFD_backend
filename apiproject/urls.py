@@ -20,9 +20,6 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-# from django.conf import settings
-# from django.conf.urls.static import static
-
 admin.site.site_header = "PTSFD后台管理"
 admin.site.site_title = admin.site.site_header
 admin.site.index_title = admin.site.site_title
@@ -37,4 +34,3 @@ urlpatterns = [
     path("question/", include("question.urls")),
     path("score/", include("score.urls")),
 ]
-# +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

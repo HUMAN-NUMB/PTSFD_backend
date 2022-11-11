@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = secret.SECERT_KEY
 
-DEBUG = True
+DEBUG = secret.DEBUG
 
 ALLOWED_HOSTS = secret.ALLOWED_HOSTS
 

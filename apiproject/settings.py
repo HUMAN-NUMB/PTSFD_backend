@@ -9,10 +9,10 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+from corsheaders.defaults import default_headers
 from datetime import timedelta
 from pathlib import Path
-from . import secret
+from apiproject import secret
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,6 +23,10 @@ SECRET_KEY = secret.SECERT_KEY
 DEBUG = secret.DEBUG
 
 ALLOWED_HOSTS = secret.ALLOWED_HOSTS
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "advance",
+]
 
 AUTH_USER_MODEL = "user.User"
 
@@ -56,10 +60,12 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "corsheaders",
+    "channels",
     "user",
     "info",
     "question",
     "score",
+    "chat",
 ]
 
 MIDDLEWARE = [
@@ -90,8 +96,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = "apiproject.wsgi.application"
 
 DATABASES = {
     "default": {
@@ -127,4 +131,14 @@ SIMPLEUI_ICON = {
     "进阶题库": "fa fa-dragon",
     "信息": "fa fa-code",
     "分数": "fa fa-chart-pie",
+}
+
+WSGI_APPLICATION = "apiproject.wsgi.application"
+
+ASGI_APPLICATION = "apiproject.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    }
 }

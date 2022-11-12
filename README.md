@@ -19,7 +19,7 @@
 
 ### 注册
 
-**`POST` `/user`**
+**`POST` `https://<base_url>/user`**
 
 - 请求参数
 
@@ -38,7 +38,7 @@
 
 ### 登录
 
-**`POST` `/auth`**
+**`POST` `https://<base_url>/auth`**
 
 - 请求参数
 
@@ -56,7 +56,7 @@
 
 ### 刷新认证令牌
 
-**`POST` `/auth/refresh`**
+**`POST` `https://<base_url>/auth/refresh`**
 
 - 请求参数
 
@@ -72,7 +72,7 @@
 
 ### 获取用户信息
 
-**`GET` `/info`**
+**`GET` `https://<base_url>/info`**
 
 - 请求头
 
@@ -94,7 +94,7 @@
 
 ### 更新用户信息
 
-**`PUT/PATCH` `/info`**
+**`PUT/PATCH` `https://<base_url>/info`**
 
 - 请求头
 
@@ -116,7 +116,7 @@
 
 ### 请求（基础）题库
 
-**`GET` `/question`**
+**`GET` `https://<base_url>/question`**
 
 - 请求头
 
@@ -140,7 +140,7 @@
 
 ### 查询分数
 
-**`GET` `/score`**
+**`GET` `https://<base_url>/score`**
 
 - 请求头
 
@@ -157,7 +157,7 @@
 
 ### 存储分数
 
-**`POST` `/score`**
+**`POST` `https://<base_url>/score`**
 
 - 请求头
 

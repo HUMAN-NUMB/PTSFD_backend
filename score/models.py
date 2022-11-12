@@ -23,4 +23,4 @@ class Score(models.Model):
         ]
 
     def __str__(self):
-        return self.score
+        return self.user.username

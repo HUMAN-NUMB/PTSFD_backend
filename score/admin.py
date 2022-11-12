@@ -8,8 +8,8 @@ from score.models import Score
 class ScoreAdmin(admin.ModelAdmin):
     list_display = (
         "user",
-        "score",
         "times",
+        "score",
     )
     list_filter = ("user",)
     fieldsets = (
@@ -38,5 +38,5 @@ class ScoreAdmin(admin.ModelAdmin):
         ),
     )
     search_fields = ("user",)
-    ordering = ("user",)
+    ordering = ("user", "times")
     filter_horizontal = ()

@@ -1,5 +1,4 @@
-#!/bin/bash
+#!/bin/ash
 
-cd /usr/src/app
-uwsgi --ini uwsgi.ini
-daphne -b 127.0.0.1 -p 8001 apiproject.asgi:application
+python3 -m gunicorn apiproject.asgi:application -k uvicorn.workers.UvicornWorker
+tail -f /dev/null

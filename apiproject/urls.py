@@ -33,7 +33,7 @@ admin.site.index_title = admin.site.site_title
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("user", user_views.as_view()),
+    path("register", user_views.as_view()),
     path("auth", TokenObtainPairView.as_view()),
     path("auth/refresh", TokenRefreshView.as_view()),
     path("info", info_views.as_view()),

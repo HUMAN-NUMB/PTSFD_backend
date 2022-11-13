@@ -19,7 +19,7 @@
 
 ### 注册
 
-**`POST` `https://<base_url>/user`**
+**`POST` `https://<base_url>/register`**
 
 - 请求参数
 

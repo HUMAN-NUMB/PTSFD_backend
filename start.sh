@@ -1,4 +1,5 @@
-#!/bin/ash
+#!/bin/bash
 
-python3 -m gunicorn apiproject.asgi:application -k uvicorn.workers.UvicornWorker
+daphne -b 127.0.0.1 -p 8000 --proxy-headers apiproject.asgi:application &
+daphne -b 127.0.0.1 -p 8001 --proxy-headers apiproject.asgi:application &
 tail -f /dev/null

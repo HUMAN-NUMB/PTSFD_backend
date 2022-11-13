@@ -3,7 +3,7 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 class ChatConsumer(AsyncJsonWebsocketConsumer):
     async def connect(self):
-        self.group_name = "chat"
+        self.group_name = "chat_room_pub"
         # Join room group
         await self.channel_layer.group_add(self.group_name, self.channel_name)
         await self.accept()

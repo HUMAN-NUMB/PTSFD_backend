@@ -11,12 +11,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 from corsheaders.defaults import default_headers
 from datetime import timedelta
-from pathlib import Path
 from apiproject import secret
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = secret.BASE_DIR
 
 SECRET_KEY = secret.SECERT_KEY
 
@@ -24,9 +23,7 @@ DEBUG = secret.DEBUG
 
 ALLOWED_HOSTS = secret.ALLOWED_HOSTS
 
-CORS_ALLOW_HEADERS = list(default_headers) + [
-    "advance",
-]
+CORS_ALLOW_HEADERS = list(default_headers) + secret.CORS_ALLOW_HEADERS
 
 AUTH_USER_MODEL = "user.User"
 
@@ -128,25 +125,10 @@ SIMPLEUI_ICON = {
 
 WSGI_APPLICATION = "apiproject.wsgi.application"
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
-
 ASGI_APPLICATION = "apiproject.asgi.application"
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("127.0.0.1", 6379)],
-        },
-    },
-}
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels.layers.InMemoryChannelLayer",
-#     }
-# }
+DATABASES = secret.DATABASES
+
+CHANNEL_LAYERS = secret.CHANNEL_LAYERS
+
+# APPEND_SLASH = False

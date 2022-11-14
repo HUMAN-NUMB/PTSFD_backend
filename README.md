@@ -173,7 +173,7 @@
 
 ### 聊天室
 
-**`JSON` `wss://<base_url>/ws/chat`**
+**`JSON` `wss://<base_url>/ws/chat?<access>`**
 
 - 发送格式
 
